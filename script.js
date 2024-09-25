@@ -34,4 +34,95 @@ function sendMessage(event) {
     const responses = document.getElementById('responses');
     responses.innerHTML += `<div class="message">${message}</div>`; // Display the user's message
     input.value = ''; // Clear the input field
+
+    fetchWeather(city);
+}
+
+// Add event listener to the search form
+document.getElementById('weatherSearchForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent default form submission
+    const city = document.getElementById('location').value; // Get the city name from the input
+    if (city) { // Check if city input is valid
+        fetchWeather(city); // Call the fetchWeather function with the city name
+    }
+});
+
+
+const apiKey = '090ff1d6addd13d7fd798fe4bc9c3446'; // Replace with your actual API key
+
+function fetchWeather(city) {
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`; // For Celsius
+
+    fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('City not found');
+            }
+            return response.json();
+        })
+        .then(data => {
+            displayWeather(data); // Call function to display weather data
+        })
+        .catch(error => {
+            console.error(error);
+            alert(error.message); // Alert user if there’s an error
+        });
+}
+
+function displayWeather(data) {
+    const condition = data.weather[0].description; // Weather condition
+    const temperature = data.main.temp; // Temperature
+    const humidity = data.main.humidity; // Humidity
+    const windSpeed = data.wind.speed; // Wind speed
+
+    // Update your HTML elements (adjust selectors as needed)
+    document.querySelector('.condition').textContent = `Conditions: ${condition}`;
+    document.querySelector('.temperature').textContent = `Temperature: ${temperature}°C`;
+    document.querySelector('.humidity').textContent = `Humidity: ${humidity}%`;
+    document.querySelector('.wind-speed').textContent = `Wind Speed: ${windSpeed} m/s`; 
+
+    // Fetch forecast using city coordinates
+    const lat = data.coord.lat; // Latitude from current weather data
+    const lon = data.coord.lon; // Longitude from current weather data
+    fetchForecast(lat, lon); // Fetch the 3-day forecast
+}
+
+function fetchForecast(lat, lon) {
+    const apiKey = '090ff1d6addd13d7fd798fe4bc9c3446'; // Replace with your actual API key
+    const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+
+    fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Forecast not found');
+            }
+            return response.json();
+        })
+        .then(data => {
+            displayForecast(data.list); // Call function to display forecast data
+        })
+        .catch(error => {
+            console.error(error);
+            alert(error.message);
+        });
+}
+
+
+function displayForecast(forecastList) {
+    // Get forecast for the next three days (you can customize the indices based on your needs)
+    const day1 = forecastList[8]; // First forecast (today)
+    const day2 = forecastList[16]; // Second forecast (tomorrow, at 12:00 PM)
+    const day3 = forecastList[24]; // Third forecast (day after tomorrow, at 12:00 PM)
+
+    // Function to get the day name from a timestamp
+    function getDayName(timestamp) {
+        const date = new Date(timestamp * 1000); // Convert timestamp (seconds to milliseconds)
+        const options = { weekday: 'long' }; // Options to get the full name of the day
+        return date.toLocaleDateString('en-US', options); // Get the day name in English
+    }
+
+    // Update the forecast with actual day names
+    document.querySelector('.day1').textContent = `${getDayName(day1.dt)}: ${day1.weather[0].description}, Temp: ${day1.main.temp}°C`;
+    document.querySelector('.day2').textContent = `${getDayName(day2.dt)}: ${day2.weather[0].description}, Temp: ${day2.main.temp}°C`;
+    document.querySelector('.day3').textContent = `${getDayName(day3.dt)}: ${day3.weather[0].description}, Temp: ${day3.main.temp}°C`;
 }

@@ -16,7 +16,7 @@
             </nav> 
         </header>
         <main>
-            <form class="search-bar">
+            <form class="search-bar" id="weatherSearchForm">
                 <label for="location">Search for weather:</label>
                 <input type="text" id="location" placeholder="Enter your location">
                 <button type="submit">
@@ -25,15 +25,16 @@
             </form>
             <section class="weather-display">
                 <div class="grid-container">
-                    <div class="grid-item condition">Conditions: Sunny</div>
-                    <div class="grid-item temperature">Temperature: 25°C</div>
-                    <div class="grid-item humidity">Humidity: 60%</div>
+                    <div class="grid-item condition">Conditions: --</div>
+                    <div class="grid-item temperature">Temperature: --</div>
+                    <div class="grid-item humidity">Humidity: --</div>
+                    <div class="grid-item wind-speed">Wind Speed: --</div>
                     <div class="grid-item forecast" colspan="3">
                         <h3>3-Day Forecast</h3>
                         <div class="forecast-day">
-                            <p class="day">Monday: 26°C</p>
-                            <p class="day">Tuesday: 24°C</p>
-                            <p class="day">Wednesday: 22°C</p>
+                            <p class="day1">Tomorrow: --</p>
+                            <p class="day2">Day after tomorrow: --</p>
+                            <p class="day3">After 3 days: --</p>
                         </div>
                     </div>
                 </div>

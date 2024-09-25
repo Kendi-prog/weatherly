@@ -169,20 +169,21 @@ p{
 
 .weather-display {
     margin-top: 20px; /* Space above the weather display */
-    background-color: #f0f8ff; /* Light background for contrast */
+    /* background-color: #f0f8ff; Light background for contrast */
     padding: 20px 30px; /* Padding around the section */
     border-radius: 10px; /* Rounded corners */
 }
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+    grid-template-columns: repeat(4, 1fr); /* Three equal columns */
     grid-template-rows: auto; /* Automatic height based on content */
     gap: 30px; /* Space between grid items */
 }
 
 .grid-item {
     background-color: white; /* Background color for grid items */
+    opacity: 0.8;
     padding: 70px 5px; /* Inner padding */
     border-radius: 5px; /* Rounded corners */
     text-align: center; /* Center align text */
@@ -190,8 +191,9 @@ p{
 }
 
 .forecast {
-    grid-column: span 3; /* Make this item span all three columns */
+    grid-column: 2 / 4; /* Make this item span all three columns */
     background-color: #e6f7ff; /* Different background for forecast */
+    opacity: 0.9;
     padding: 20px; /* Inner padding */
     border-radius: 5px; /* Rounded corners */
 }
