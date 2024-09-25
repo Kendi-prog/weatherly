@@ -20,3 +20,18 @@ changeBackground();
 
 //Change background after every 2 seconds
 setInterval(changeBackground, 2000);
+
+
+function toggleChat() {
+    const chatWindow = document.getElementById('chatWindow');
+    chatWindow.style.display = chatWindow.style.display === 'none' || chatWindow.style.display === '' ? 'block' : 'none';
+}
+
+function sendMessage(event) {
+    event.preventDefault();
+    const input = event.target.querySelector('input');
+    const message = input.value;
+    const responses = document.getElementById('responses');
+    responses.innerHTML += `<div class="message">${message}</div>`; // Display the user's message
+    input.value = ''; // Clear the input field
+}

@@ -10,12 +10,36 @@ body {
 }
 
 
+
+
 .header{
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding: 10px;
+    padding: 5px 100px 5px 20px;
+    
 }
+
+
+
+
+#topnav {
+    margin-left: auto;
+    display: flex;
+    gap: 40px;
+   
+    
+}
+
+#topnav a{
+    text-decoration: none;
+    color: black;
+    padding: 10px 10px;
+    font-size: larger;
+    
+    
+}
+
 
 .icon{
     width: 40px;
@@ -26,10 +50,13 @@ body {
 }
 
 .app-title{
-    color: #ecde11;
+    color: black;
     font-size: medium;
     font-family: "Dancing Script", cursive;
+    
 }
+
+
 
 @keyframes bounceIn {
     0% {
@@ -105,4 +132,138 @@ p{
 .cta-button:hover {
 
     background-color: #4b7afc;
+}
+
+.search-bar {
+    display: flex; /* Align items in a row */
+    justify-content: center; /* Center the search bar */
+    margin: 30px 0;
+    align-items: center;
+    
+}
+
+.search-bar label {
+    margin-right: 10px; /* Space between label and input */
+ 
+}
+
+.search-bar input {
+    padding: 10px; /* Inner padding for the input */
+    border: 1px solid #ccc; /* Border color */
+    border-radius: 5px;
+    margin-right: 10px; /* Rounded corners */
+    width: 35%;
+}
+
+.search-bar button {
+    padding: 10px 15px; /* Inner padding for the button */
+    background-color: #FFD700; /* Button color */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.search-bar button:hover {
+    background-color: #FFC107; /* Darker yellow on hover */
+}
+
+.weather-display {
+    margin-top: 20px; /* Space above the weather display */
+    background-color: #f0f8ff; /* Light background for contrast */
+    padding: 20px 30px; /* Padding around the section */
+    border-radius: 10px; /* Rounded corners */
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+    grid-template-rows: auto; /* Automatic height based on content */
+    gap: 30px; /* Space between grid items */
+}
+
+.grid-item {
+    background-color: white; /* Background color for grid items */
+    padding: 70px 5px; /* Inner padding */
+    border-radius: 5px; /* Rounded corners */
+    text-align: center; /* Center align text */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
+}
+
+.forecast {
+    grid-column: span 3; /* Make this item span all three columns */
+    background-color: #e6f7ff; /* Different background for forecast */
+    padding: 20px; /* Inner padding */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.weather-bot {
+    position: fixed; /* Fixed position */
+    right: 20px; /* Distance from the right */
+    bottom: 20px; /* Distance from the bottom */
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+.bot-button {
+    background-color: #FFD700; /* Button color */
+    border: none; /* No border */
+    border-radius: 50%; /* Circular button */
+    padding: 15px; /* Padding for button */
+    cursor: pointer; /* Pointer cursor */
+    font-size: 24px; /* Icon size */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional shadow */
+}
+
+.chat-window {
+    display: none; /* Hidden by default */
+    position: absolute; /* Position relative to the bot */
+    right: 0; /* Align to the right */
+    bottom: 80px; /* Place above the button */
+    width: 300px; /* Width of chat window */
+    height: 300px;
+    background-color: #fff; /* Background color */
+    border: 1px solid #ccc; /* Border */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Shadow */
+}
+
+.chat-header {
+    background-color: #FFD700; /* Header color */
+    padding: 5px 0px 5px 10px; /* Padding */
+    display: flex; /* Flex for alignment */
+    justify-content: space-between; /* Space between title and close button */
+}
+
+.close-button{
+    height: 30px;
+    width: 30px;
+    margin-top: -5px;
+ 
+}
+
+.chat-body {
+    padding: 10px; /* Padding for body */
+    max-height: 200px; /* Max height */
+    overflow-y: auto; /* Scroll if exceeds */
+}
+
+.chat-input {
+    display: flex; /* Flex for input and button */
+    padding: 120px 10px 5px;
+}
+
+.chat-input input {
+    flex-grow: 1; /* Input takes available space */
+    padding: 10px; /* Padding */
+    border: 1px solid #ccc; /* Border color */
+    border-radius: 5px; /* Rounded corners */
+    margin-right: 2px;
+}
+
+.chat-input button {
+    padding: 10px; /* Button padding */
+    background-color: #28a745; /* Button color */
+    color: white; /* Text color */
+    border: none; /* No border */
+    border-radius: 3px;
+    cursor: pointer; /* Pointer cursor */
 }
