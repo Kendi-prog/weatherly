@@ -9,9 +9,6 @@ body {
     /*background-image: url('Landingpage-images/lp1.jpg');background-color: #f0f0f0;*/
 }
 
-
-
-
 .header{
     display: flex;
     align-items: center;
@@ -19,8 +16,6 @@ body {
     padding: 5px 100px 5px 20px;
     
 }
-
-
 
 
 #topnav {
@@ -188,6 +183,125 @@ p{
     border-radius: 5px; /* Rounded corners */
     text-align: center; /* Center align text */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    color: black;
+}
+
+/* Weather Icon Styling */
+/* Weather Icon Styling */
+#weather-icon {
+    width: 80px; /* Size of the icon */
+    height: 80px; /* Size of the icon */
+    margin-right: 10px;
+    opacity: 1.0;
+    border: 2px solid #2196F3; /* Add a border */
+    border-radius: 10px; /* Rounded corners */
+    background-color: white; /* White background for contrast */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
+    transition: transform 0.5s; /* Smooth hover transition */
+}
+
+#weather-icon:hover {
+    transform: scale(1.3); /* Scale up on hover for effect */
+}
+
+/* .thermometer {
+    width: 40px; 
+    height: 200px; 
+    background-color: 
+    border: 2px solid #2196F3;
+    border-radius: 20px; 
+    position: relative;
+    margin: 20px auto; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+
+.thermometer{
+    display: block;
+    position: relative;
+    left: 130px;
+    bottom: 5px;
+    height: 100px;
+}
+
+.bulb{
+    display:inline-block;
+    border:2px solid #222;
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    border-top: 2px solid #fff;
+    box-shadow: 0px 0px 0px 2px #fff inset;
+    background:red;
+  }
+
+.stem{
+display: inline-block;
+    border: 2px solid #222;
+    width: 12px;
+    height: 80px;
+    border-radius: 0px 0px 20px 20px;
+    border-top: 2px solid transparent;
+    position: absolute;
+    bottom: 18px;
+    left: 4px;
+    box-shadow: 0px 0px 0px 2px #fff inset;
+    transform: rotate(180deg);
+    z-index: 10;
+    padding-bottom: 3px;
+}
+
+.stem-perct{
+height: 80%;
+width: 8px;
+background: red;
+display: block;
+margin: 0px auto;
+border-radius: 10px;
+}
+
+.bulb:after{
+    content: '';
+    height: 10px;
+    width: 8px;
+    background: inherit;
+    position: absolute;
+    left: 6px;
+    bottom: 13px;
+    z-index: 12;
+}
+
+
+.humidity-bar {
+    width: 100%;
+    height: 20px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 30px;
+   
+}
+
+.humidity-fill {
+    height: 100%;
+    width: 0; /* Start at 0 for animation */
+    background-color: #2196F3; /* Blue color for humidity fill */
+    transition: width 1s; /* Smooth transition */
+}
+
+.wind-animation {
+    width: 100px;
+    height: 10px;
+    margin-top: 40px;
+    background-color: #a0c4ff;
+    position: relative;
+    animation: windAnimation 1s linear infinite;
+}
+
+@keyframes windAnimation {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(100px); }
 }
 
 .forecast {
@@ -233,13 +347,21 @@ p{
     padding: 5px 0px 5px 10px; /* Padding */
     display: flex; /* Flex for alignment */
     justify-content: space-between; /* Space between title and close button */
+   
+}
+
+.chat-title {
+    text-align: center; /* Center the title */
+    flex-grow: 1; /* Allow the title to take available space */
 }
 
 .close-button{
     height: 30px;
     width: 30px;
-    margin-top: -5px;
- 
+    margin-top: -40px;
+    border-style: double;
+   
+   
 }
 
 .chat-body {
@@ -248,9 +370,31 @@ p{
     overflow-y: auto; /* Scroll if exceeds */
 }
 
+.message {
+    padding: 10px; /* Padding for message */
+    border-radius: 10px; /* Rounded corners */
+    margin: 5px 0; /* Margin between messages */
+    max-width: 80%; /* Maximum width of message bubbles */
+    position: relative; /* For the triangle effect */
+}
+
+.message.bot {
+    background-color: #2196F3; /* Bot message color */
+    color: white; /* Text color */
+    align-self: flex-start; /* Align to the left */
+}
+
+.message.user {
+    background-color: #e0e0e0; /* User message color */
+    color: black; /* Text color */
+    align-self: flex-end; /* Align to the right */
+}
+
 .chat-input {
     display: flex; /* Flex for input and button */
-    padding: 120px 10px 5px;
+    padding: 10px; /* Padding for input area */
+    background-color: #fff; /* White background for input area */
+    border-top: 1px solid #ccc; /* Top border for separation */
 }
 
 .chat-input input {

@@ -27,16 +27,111 @@ function toggleChat() {
     chatWindow.style.display = chatWindow.style.display === 'none' || chatWindow.style.display === '' ? 'block' : 'none';
 }
 
-function sendMessage(event) {
-    event.preventDefault();
-    const input = event.target.querySelector('input');
-    const message = input.value;
-    const responses = document.getElementById('responses');
-    responses.innerHTML += `<div class="message">${message}</div>`; // Display the user's message
-    input.value = ''; // Clear the input field
 
-    fetchWeather(city);
+async function fetchResponse(location) {
+    const apiKey = '090ff1d6addd13d7fd798fe4bc9c3446'; // Replace with your actual API key
+    const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${location}`);
+    
+    if (!response.ok) {
+        throw new Error("Failed to fetch weather data");
+    }
+
+    const data = await response.json();
+    return `The current temperature in ${location} is ${data.current.temp_c}°C.`;
 }
+
+function extractLocation(userMessage) {
+    // Simple extraction logic; you can improve this
+    const words = userMessage.split(" ");
+    return words[words.length - 1]; // Assume the last word is the location
+}
+
+async function sendMessage(event) {
+    event.preventDefault(); // Prevent form submission
+
+    const input = event.target.querySelector('input');
+    const userMessage = input.value.trim();
+
+    // Create user message bubble
+    const userMessageElement = document.createElement('div');
+    userMessageElement.className = 'message user';
+    userMessageElement.textContent = userMessage;
+
+    // Append user message to chat body
+    const chatBody = document.getElementById('chatBody');
+    chatBody.appendChild(userMessageElement);
+
+    // Check if the user asked for weather
+    if (userMessage.toLowerCase().includes("weather")) {
+        const location = extractLocation(userMessage); // Extract location from the message
+        try {
+            const botResponse = await fetchResponse(location);
+            // Create bot response bubble
+            const botResponseElement = document.createElement('div');
+            botResponseElement.className = 'message bot';
+            botResponseElement.textContent = botResponse;
+
+            // Append bot response to chat body
+            chatBody.appendChild(botResponseElement);
+        } catch (error) {
+            const errorResponseElement = document.createElement('div');
+            errorResponseElement.className = 'message bot';
+            errorResponseElement.textContent = "Sorry, I couldn't fetch the weather information.";
+            chatBody.appendChild(errorResponseElement);
+        }
+    } else {
+        // Default response for unrecognized input
+        const botResponseElement = document.createElement('div');
+        botResponseElement.className = 'message bot';
+        botResponseElement.textContent = "I'm not sure how to answer that.";
+
+        // Append bot response to chat body
+        chatBody.appendChild(botResponseElement);
+    }
+
+    // Clear input
+    input.value = '';
+
+    // Scroll to the bottom of chat body
+    chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+
+
+
+/*function sendMessage(event) {
+    event.preventDefault(); // Prevent form submission
+
+    const input = event.target.querySelector('input');
+    const userMessage = input.value;
+
+    // Create user message bubble
+    const userMessageElement = document.createElement('div');
+    userMessageElement.className = 'message user';
+    userMessageElement.textContent = userMessage;
+
+    // Append user message to chat body
+    const chatBody = document.getElementById('chatBody');
+    chatBody.appendChild(userMessageElement);
+
+    // Simulate bot response
+    const botResponseElement = document.createElement('div');
+    botResponseElement.className = 'message bot';
+    botResponseElement.textContent = "I'm here to help with the weather!"; // Example response
+
+    // Append bot response to chat body
+    chatBody.appendChild(botResponseElement);
+
+    // Clear input
+    input.value = '';
+
+    // Scroll to the bottom of chat body
+    chatBody.scrollTop = chatBody.scrollHeight;
+    
+    
+}*/
+
+
 
 // Add event listener to the search form
 document.getElementById('weatherSearchForm').addEventListener('submit', function(event) {
@@ -71,21 +166,52 @@ function fetchWeather(city) {
 
 function displayWeather(data) {
     const condition = data.weather[0].description; // Weather condition
+    const iconCode = data.weather[0].icon;
     const temperature = data.main.temp; // Temperature
     const humidity = data.main.humidity; // Humidity
     const windSpeed = data.wind.speed; // Wind speed
 
-    // Update your HTML elements (adjust selectors as needed)
-    document.querySelector('.condition').textContent = `Conditions: ${condition}`;
-    document.querySelector('.temperature').textContent = `Temperature: ${temperature}°C`;
-    document.querySelector('.humidity').textContent = `Humidity: ${humidity}%`;
-    document.querySelector('.wind-speed').textContent = `Wind Speed: ${windSpeed} m/s`; 
+    // Update weather description and icon
+    document.getElementById('weather-description').textContent = `Conditions: ${condition}`;
+    updateWeatherIcon(iconCode);
+
+    // Update temperature, humidity, and wind speed
+    document.getElementById('temperature').textContent = `Temperature: ${temperature} °C`;
+    document.getElementById('humidity').textContent = `Humidity: ${humidity} %`;
+    document.getElementById('wind-speed').textContent = `Wind Speed: ${windSpeed} m/s`;
+
+    // Animate the thermometer
+    animateThermometer(temperature);
+    animateHumidity(humidity);
 
     // Fetch forecast using city coordinates
     const lat = data.coord.lat; // Latitude from current weather data
     const lon = data.coord.lon; // Longitude from current weather data
     fetchForecast(lat, lon); // Fetch the 3-day forecast
 }
+
+
+// Function to update weather icon
+function updateWeatherIcon(iconCode) {
+    const icon = document.getElementById('weather-icon');
+    const iconUrl = `http://openweathermap.org/img/wn/${iconCode}@2x.png`;
+    icon.src = iconUrl;
+}
+
+// Function to animate the thermometer
+function animateThermometer(temperature) {
+    const mercury = document.getElementById('mercury');
+    const height = Math.min((temperature / 50) * 100, 100); // Assuming 50°C for full height
+    mercury.style.height = `${height}%`; // Set height based on temperature
+    
+}
+
+// Function to animate the humidity fill
+function animateHumidity(humidity) {
+    const humidityFill = document.getElementById('humidity-fill');
+    humidityFill.style.width = `${humidity}%`; // Set width based on humidity
+}
+
 
 function fetchForecast(lat, lon) {
     const apiKey = '090ff1d6addd13d7fd798fe4bc9c3446'; // Replace with your actual API key

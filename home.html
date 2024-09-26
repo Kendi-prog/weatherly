@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-       <title>Weatherly</title>
+       <title>Weatherly Home</title>
        <link rel="stylesheet" href="style.css">
        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     </head>
@@ -25,10 +25,30 @@
             </form>
             <section class="weather-display">
                 <div class="grid-container">
-                    <div class="grid-item condition">Conditions: --</div>
-                    <div class="grid-item temperature">Temperature: --</div>
-                    <div class="grid-item humidity">Humidity: --</div>
-                    <div class="grid-item wind-speed">Wind Speed: --</div>
+                    <div class="grid-item condition">
+                        <img id="weather-icon" src="http://openweathermap.org/img/wn/01d@2x.png" alt="Weather Icon" />
+                        <h2 id="weather-description" style="margin-top: 60px;">Conditions: --</h2>
+                    </div>
+                    <div class="grid-item temperature">
+                        <div class="thermometer">
+                            <div class="stem">
+                                <div class="stem-perct" id="mercury"></div>
+                            </div>
+                            <div class="bulb"></div>
+                        </div>
+                        <h2 id="temperature" style="margin-top: 50px;">Temperature: -- °C</h2>
+                    </div>
+                    <div class="grid-item humidity">
+                        <div class="humidity-bar">
+                            <div class="humidity-fill" id="humidity-fill"></div>
+                        </div>
+                        <h2 id="humidity" style="margin-top: 101px;">Humidity: -- %</h2>
+                    </div>    
+                    <div class="grid-item wind-speed">
+                        <div class="wind-animation" id="wind-animation"></div>
+                        <h2 id="wind-speed" style="margin-top: 101px;">Wind Speed: -- m/s</h2>
+                    </div>
+                 
                     <div class="grid-item forecast" colspan="3">
                         <h3>3-Day Forecast</h3>
                         <div class="forecast-day">
@@ -45,11 +65,11 @@
                 </button>
                 <div class="chat-window" id="chatWindow">
                     <div class="chat-header">
-                        <h3>Sunny</h3> <!-- Bot name -->
+                        <h3 class="chat-title"> Weatherly Assistant Bot</h3> <!-- Bot name -->
                         <button  class="close-button" onclick="toggleChat()">✖</button> <!-- Close button -->
                     </div>
-                    <div class="chat-body">
-                        <div class="message">Hi there! Ask me anything about the weather!</div>
+                    <div class="chat-body" id="chatBody">
+                        <div class="message bot">Hi there! Ask me anything about the weather!</div>
                         <div id="responses"></div>
                     </div>
                     <form class="chat-input" onsubmit="sendMessage(event)">
