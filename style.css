@@ -1,7 +1,8 @@
 body {
     margin: 0; 
     height: 100vh; 
-    background-size: cover;  
+    background-size: cover; 
+    background-attachment: fixed; 
     background-position: center;
     background-repeat: no-repeat; 
     transition: background-image 1s ease; 
@@ -13,8 +14,15 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding: 5px 100px 5px 20px;
+    padding:  5px 100px 5px 20px;
+    font-family: 'Indie Flower', cursive;
     
+}
+
+main{    
+    font-family: "Indie Flower", cursive;
+  
+  
 }
 
 
@@ -22,17 +30,23 @@ body {
     margin-left: auto;
     display: flex;
     gap: 40px;
-   
-    
+    position: relative;    
 }
 
 #topnav a{
     text-decoration: none;
     color: black;
     padding: 10px 10px;
-    font-size: larger;
-    
-    
+    font-size: larger;     
+}
+
+.active-line {
+    position: absolute;
+    height: 2px; /* Height of the line */
+    width: 50px;
+    background-color: #007BFF; /* Line color */
+    bottom: 8px; /* Position it below the links */
+    transition: left 0.3s ease, width 0.3s ease; /* Animation */
 }
 
 
@@ -126,19 +140,33 @@ p{
 
 .cta-button:hover {
 
-    background-color: #4b7afc;
+    background-color: #e6f7ff;
 }
 
-.search-bar {
+.below-header {
     display: flex; /* Align items in a row */
-    justify-content: center; /* Center the search bar */
-    margin: 30px 0;
+    justify-content: space-between; /* Center the search bar */
+    margin: 30px;
     align-items: center;
     
 }
 
+#openweathermap-widget-9 {
+    margin-top: 10px;
+}
+
+
+
+.search-bar {
+    margin-right: 300px;
+    
+} 
+    
+
 .search-bar label {
     margin-right: 10px; /* Space between label and input */
+    font-weight: bold;
+    font-size: large;
  
 }
 
@@ -147,7 +175,14 @@ p{
     border: 1px solid #ccc; /* Border color */
     border-radius: 5px;
     margin-right: 10px; /* Rounded corners */
-    width: 35%;
+    width: 400px;
+}
+
+input::placeholder {
+    font-family: 'Indie Flower', cursive; /* Change to your desired font */
+    font-size: 18px; /* Adjust the font size */
+    color: #888; /* Change the placeholder color */
+    opacity: 1; /* Ensures the placeholder is fully opaque */
 }
 
 .search-bar button {
@@ -184,6 +219,7 @@ p{
     text-align: center; /* Center align text */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
     color: black;
+    height: 150px;
 }
 
 /* Weather Icon Styling */
@@ -310,6 +346,7 @@ border-radius: 10px;
     opacity: 0.9;
     padding: 20px; /* Inner padding */
     border-radius: 5px; /* Rounded corners */
+    height: 200px;
 }
 
 .weather-bot {

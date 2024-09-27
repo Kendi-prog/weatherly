@@ -22,6 +22,30 @@ changeBackground();
 setInterval(changeBackground, 2000);
 
 
+window.onload = function() {
+    const activeLine = document.getElementById('activeLine');
+    const links = document.querySelectorAll('#topnav a');
+
+    // Function to set the active line position
+    function setActiveLine(link) {
+        activeLine.style.left = link.offsetLeft + (link.offsetWidth - 50) / 2 + 'px'; // Center the line
+    }
+
+    // Set the active line on page load
+    links.forEach(link => {
+        link.addEventListener('click', function() {
+            links.forEach(l => l.classList.remove('active')); // Remove active class from all links
+            this.classList.add('active'); // Add active class to the clicked link
+            setActiveLine(this);
+        });
+    });
+
+    // Initially set the active line based on the initially active link
+    const activeLink = document.querySelector('#topnav a.active');
+    setActiveLine(activeLink);
+};
+
+
 function toggleChat() {
     const chatWindow = document.getElementById('chatWindow');
     chatWindow.style.display = chatWindow.style.display === 'none' || chatWindow.style.display === '' ? 'block' : 'none';
@@ -32,6 +56,8 @@ async function fetchResponse(location) {
     const apiKey = '090ff1d6addd13d7fd798fe4bc9c3446'; // Replace with your actual API key
     const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${location}`);
     
+    console.log('Response Status:', response.status);
+
     if (!response.ok) {
         throw new Error("Failed to fetch weather data");
     }

@@ -17,9 +17,14 @@
             <p>Stay ahead of the weather with Weatherly, your reliable companion for real-time weather updates.
             <br>Whether planning a sunny day out or preparing for a storm, my app provides accurate forecasts, severe
             <br>weather alerts, and detailed insights tailored just for you.</p>
-            <button class="cta-button">
+            <button class="cta-button" id="exploreButton">
                 Explore Now<i class="fas fa-arrow-right"></i>
             </button>
+            <script>
+                document.getElementById('exploreButton').addEventListener('click', function() {
+                    window.location.href = 'home.html'; // Change to your home page URL
+                });
+            </script>
 
         </main>
         <script src="script.js"></script>

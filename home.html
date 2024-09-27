@@ -4,18 +4,42 @@
        <title>Weatherly Home</title>
        <link rel="stylesheet" href="style.css">
        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+       <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Dots:wght@400..700&family=Indie+Flower&family=Pacifico&display=swap" rel="stylesheet">
+
     </head>
     <body>
         <header class="header" style="background-color: rgb(238, 190, 34);">
             <div class="icon"></div>
-            <h1 class="app-title">Weatherly</h1> 
+            <h1 class="app-title">Weatherly</h1>
             <nav id="topnav">
                 <a class="active" href="#home">Home</a>
                 <a href="#about">About</a>
                 <a href="#contact">Contact</a>
+                <div class="active-line" id="activeLine"></div>
             </nav> 
         </header>
         <main>
+            <h2 style="text-align: center;">Welcome to Weatherly, your go-to source for real-time weather updates and forecasts <br>—stay informed, no matter where you are!</h2>
+            <div class="below-header">
+                <div id="openweathermap-widget-9"></div>
+            <script>
+                window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];
+                window.myWidgetParam.push({
+                    id: 9,
+                    cityid: '184745',
+                    appid: '090ff1d6addd13d7fd798fe4bc9c3446',
+                    units: 'metric',
+                    containerid: 'openweathermap-widget-9',
+                });
+                (function() {
+                    var script = document.createElement('script');
+                    script.async = true;
+                    script.charset = "utf-8";
+                    script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
+                    var s = document.getElementsByTagName('script')[0];
+                    s.parentNode.insertBefore(script, s);
+                })();
+            </script>
             <form class="search-bar" id="weatherSearchForm">
                 <label for="location">Search for weather:</label>
                 <input type="text" id="location" placeholder="Enter your location">
@@ -23,6 +47,7 @@
                     <i class="fas fa-search"></i>
                 </button>
             </form>
+            </div>
             <section class="weather-display">
                 <div class="grid-container">
                     <div class="grid-item condition">
