@@ -10,14 +10,15 @@ body {
     /*background-image: url('Landingpage-images/lp1.jpg');background-color: #f0f0f0;*/
 }
 
+
 .header{
     display: flex;
     align-items: center;
     justify-content: flex-start;
     padding:  5px 100px 5px 20px;
-    font-family: 'Indie Flower', cursive;
-    
+    font-family: 'Indie Flower', cursive;    
 }
+
 
 main{    
     font-family: "Indie Flower", cursive; 
@@ -31,6 +32,7 @@ main{
     position: relative;    
 }
 
+
 #topnav a{
     text-decoration: none;
     color: black;
@@ -38,11 +40,12 @@ main{
     font-size: larger;     
 }
 
+
 .active-line {
     position: absolute;
     height: 2px; /* Height of the line */
     width: 50px;
-    background-color: #007BFF; /* Line color */
+    background-color: #007BFF; 
     bottom: 8px; /* Position it below the links */
     transition: left 0.3s ease, width 0.3s ease; /* Animation */
 }
@@ -51,10 +54,11 @@ main{
 .icon{
     width: 40px;
     height: 40px;
-    background-image: url(weather.png);
+    background-image: url(Icon-images/weather.png);
     background-size: cover;
     margin-right: 10px;
 }
+
 
 .app-title{
     color: black;
@@ -64,7 +68,7 @@ main{
 }
 
 
-
+/* Landing page styles*/
 @keyframes bounceIn {
     0% {
         opacity: 0; /* Start invisible */
@@ -82,29 +86,33 @@ main{
     }
 }
 
+
 .main-content {
-    position: relative; /* Position relative for stacking */
+    position: relative; 
     z-index: 2; /* Bring main content above background */
-    display: flex; /* Use flexbox for centering */
+    display: flex;
     flex-direction: column; /* Stack elements vertically */
     align-items: center; /* Center elements */
     justify-content: center; /* Center elements vertically */
     height: 100vh; /* Full height of the viewport */
-    color: #000; /* Text color */
-    text-align: center; /* Center text */
+    color: #000; 
+    text-align: center; 
     margin-top: -20px;
     font-family: "Playpen Sans", cursive;
     /*background-color: rgba(255, 255, 255, 0.8);*/
 }
+
 
 #main-heading{
     font-size: 40px;
     animation: bounceIn 1.7s ease; 
 }
 
+
 p{
     font-size: large;
 }
+
 
 @keyframes jump {
     0% {
@@ -118,10 +126,11 @@ p{
     }
 }
 
+
 .cta-button {
-    background-color: #FFD700; /* Button color */
+    background-color: black; /* Button color */
     border: none; /* Remove border */
-    color: black; /* Text color */
+    color: white; /* Text color */
     padding: 10px 20px; /* Padding */
     font-size: 16px; /* Font size */
     cursor: pointer; /* Pointer cursor on hover */
@@ -132,41 +141,42 @@ p{
     animation: jump 0.5s infinite;
 }
 
+
+
 .cta-button i {
     margin-left: 5px; /* Space between icon and text */
 }
 
-.cta-button:hover {
 
-    background-color: #e6f7ff;
+.cta-button:hover {
+    background-color: rgb(243, 204, 30);
+    color: black;
 }
 
+ /*Home page styles*/
 .below-header {
     display: flex; /* Align items in a row */
-    justify-content: space-between; /* Center the search bar */
+    justify-content: space-between;
     margin: 30px;
-    align-items: center;
-    
+    align-items: center;   
 }
+
 
 #openweathermap-widget-9 {
     margin-top: 10px;
 }
 
 
-
 .search-bar {
-    margin-right: 300px;
-    
+    margin-right: 300px;    
 } 
     
-
 .search-bar label {
     margin-right: 10px; /* Space between label and input */
     font-weight: bold;
-    font-size: large;
- 
+    font-size: large; 
 }
+
 
 .search-bar input {
     padding: 10px; /* Inner padding for the input */
@@ -176,63 +186,70 @@ p{
     width: 400px;
 }
 
+
 input::placeholder {
-    font-family: 'Indie Flower', cursive; /* Change to your desired font */
-    font-size: 18px; /* Adjust the font size */
+    font-family: 'Indie Flower', cursive;
+    font-size: 18px; 
     color: #888; /* Change the placeholder color */
     opacity: 1; /* Ensures the placeholder is fully opaque */
 }
 
+
 .search-bar button {
     padding: 10px 15px; /* Inner padding for the button */
-    background-color: #FFD700; /* Button color */
+    background-color: #FFD700; 
     border: none; /* Remove default border */
     border-radius: 5px; /* Rounded corners */
     cursor: pointer; /* Pointer cursor on hover */
 }
 
+
 .search-bar button:hover {
     background-color: #FFC107; /* Darker yellow on hover */
 }
 
+
 .weather-display {
     margin-top: 20px; /* Space above the weather display */
     /* background-color: #f0f8ff; Light background for contrast */
-    padding: 20px 30px; /* Padding around the section */
-    border-radius: 10px; /* Rounded corners */
+    padding: 20px 30px; 
+    border-radius: 10px; 
 }
+
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Three equal columns */
+    grid-template-columns: repeat(4, 1fr); /* four equal columns */
     grid-template-rows: auto; /* Automatic height based on content */
     gap: 30px; /* Space between grid items */
 }
 
+
 .grid-item {
-    background-color: white; /* Background color for grid items */
+    background-color: white;
     opacity: 0.8;
     padding: 70px 5px; /* Inner padding */
-    border-radius: 5px; /* Rounded corners */
-    text-align: center; /* Center align text */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    border-radius: 5px; 
+    text-align: center; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
     color: black;
     height: 150px;
 }
 
-/* Weather Icon Styling */
+
 /* Weather Icon Styling */
 #weather-icon {
     width: 80px; /* Size of the icon */
     height: 80px; /* Size of the icon */
     margin-right: 10px;
     opacity: 1.0;
-    border: 2px solid #2196F3; /* Add a border */
-    border-radius: 10px; /* Rounded corners */
-    background-color: white; /* White background for contrast */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
+    border: 2px solid #2196F3; 
+    border-radius: 10px; 
+    background-color: white; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); 
     transition: transform 0.5s; /* Smooth hover transition */
 }
+
 
 #weather-icon:hover {
     transform: scale(1.3); /* Scale up on hover for effect */
@@ -248,6 +265,7 @@ input::placeholder {
     margin: 20px auto; 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Shadow for depth */
 
+
 .thermometer{
     display: block;
     position: relative;
@@ -255,6 +273,7 @@ input::placeholder {
     bottom: 5px;
     height: 100px;
 }
+
 
 .bulb{
     display:inline-block;
@@ -270,8 +289,9 @@ input::placeholder {
     background:red;
   }
 
+
 .stem{
-display: inline-block;
+    display: inline-block;
     border: 2px solid #222;
     width: 12px;
     height: 80px;
@@ -286,14 +306,16 @@ display: inline-block;
     padding-bottom: 3px;
 }
 
+
 .stem-perct{
-height: 80%;
+height: 0%;
 width: 8px;
 background: red;
 display: block;
 margin: 0px auto;
 border-radius: 10px;
 }
+
 
 .bulb:after{
     content: '';
@@ -317,12 +339,14 @@ border-radius: 10px;
    
 }
 
+
 .humidity-fill {
     height: 100%;
     width: 0; /* Start at 0 for animation */
     background-color: #2196F3; /* Blue color for humidity fill */
     transition: width 1s; /* Smooth transition */
 }
+
 
 .wind-animation {
     width: 100px;
@@ -333,19 +357,22 @@ border-radius: 10px;
     animation: windAnimation 1s linear infinite;
 }
 
+
 @keyframes windAnimation {
     0% { transform: translateX(0); }
     100% { transform: translateX(100px); }
 }
 
+
 .forecast {
-    grid-column: 2 / 4; /* Make this item span all three columns */
-    background-color: #e6f7ff; /* Different background for forecast */
+    grid-column: 2 / 4; /* Make this item span the two columns */
+    background-color: #e6f7ff; 
     opacity: 0.9;
-    padding: 20px; /* Inner padding */
-    border-radius: 5px; /* Rounded corners */
+    padding: 20px; 
+    border-radius: 5px; 
     height: 200px;
 }
+
 
 .weather-bot {
     position: fixed; /* Fixed position */
@@ -354,15 +381,17 @@ border-radius: 10px;
     z-index: 1000; /* Ensure it's above other content */
 }
 
+
 .bot-button {
     background-color: #FFD700; /* Button color */
-    border: none; /* No border */
+    border: none; 
     border-radius: 50%; /* Circular button */
-    padding: 15px; /* Padding for button */
+    padding: 15px; 
     cursor: pointer; /* Pointer cursor */
     font-size: 24px; /* Icon size */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional shadow */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
 }
+
 
 .chat-window {
     display: none; /* Hidden by default */
@@ -373,114 +402,121 @@ border-radius: 10px;
     height: 300px;
     background-color: #fff; /* Background color */
     border: 1px solid #ccc; /* Border */
-    border-radius: 8px; /* Rounded corners */
+    border-radius: 20px; /* Rounded corners */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Shadow */
 }
+
 
 .chat-header {
     background-color: #FFD700; /* Header color */
     padding: 5px 0px 5px 10px; /* Padding */
     display: flex; /* Flex for alignment */
     justify-content: space-between; /* Space between title and close button */
+    border-radius: 10px;
    
 }
+
 
 .chat-title {
     text-align: center; /* Center the title */
     flex-grow: 1; /* Allow the title to take available space */
 }
 
+
 .close-button{
     height: 30px;
     width: 30px;
     margin-top: -40px;
-    border-style: double;
-   
-   
+    border-style: double;  
 }
 
+
 .chat-body {
-    padding: 10px; /* Padding for body */
-    max-height: 200px; /* Max height */
+    padding: 10px;
+    max-height: 200px; 
     overflow-y: auto; /* Scroll if exceeds */
 }
 
+
 .message {
-    padding: 10px; /* Padding for message */
+    padding: 10px;
     border-radius: 10px; /* Rounded corners */
     margin: 5px 0; /* Margin between messages */
     max-width: 80%; /* Maximum width of message bubbles */
-    position: relative; /* For the triangle effect */
+    position: relative; 
 }
+
 
 .message.bot {
     background-color: #2196F3; /* Bot message color */
-    color: white; /* Text color */
+    color: white; 
     align-self: flex-start; /* Align to the left */
 }
 
+
 .message.user {
     background-color: #e0e0e0; /* User message color */
-    color: black; /* Text color */
+    color: black; 
     align-self: flex-end; /* Align to the right */
 }
+
 
 .chat-input {
     display: flex; /* Flex for input and button */
     padding: 10px; /* Padding for input area */
-    background-color: #fff; /* White background for input area */
+    background-color: #fff; 
     border-top: 1px solid #ccc; /* Top border for separation */
 }
 
+
 .chat-input input {
     flex-grow: 1; /* Input takes available space */
-    padding: 10px; /* Padding */
-    border: 1px solid #ccc; /* Border color */
-    border-radius: 5px; /* Rounded corners */
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
     margin-right: 2px;
 }
 
+
 .chat-input button {
-    padding: 10px; /* Button padding */
-    background-color: #28a745; /* Button color */
-    color: white; /* Text color */
-    border: none; /* No border */
+    padding: 10px; 
+    background-color: #28a745; 
+    color: white; 
+    border: none; 
     border-radius: 3px;
-    cursor: pointer; /* Pointer cursor */
+    cursor: pointer; 
 }
 
 
-
-section {
+/* About page*/
+.section {
     background-color: #f9f9f9;
+    opacity: 0.8;
     border-radius: 8px;
     padding: 20px;
     margin: 20px 0;
 }
+
+
 .skills-list {
     display: flex;
     flex-wrap: wrap;
 }
+
+
 .skills-list li {
     margin: 10px;
     display: flex;
     align-items: center;
 }
-.cta-button {
-    background-color: #007BFF;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    display: inline-block;
-}
 
 
-
+/* Contact page*/
 ul {
     list-style-type: none;
     padding: 0;
 }
+
 
 ul li {
     margin: 5px 0;

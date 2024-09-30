@@ -53,7 +53,7 @@ function toggleChat() {
 
 
 async function fetchResponse(location) {
-    const apiKey = '090ff1d6addd13d7fd798fe4bc9c3446'; // Replace with your actual API key
+    const apiKey = '090ff1d6addd13d7fd798fe4bc9c3446'; 
     const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${location}`);
     
     console.log('Response Status:', response.status);
@@ -169,7 +169,7 @@ document.getElementById('weatherSearchForm').addEventListener('submit', function
 });
 
 
-const apiKey = '090ff1d6addd13d7fd798fe4bc9c3446'; // Replace with your actual API key
+const apiKey = '090ff1d6addd13d7fd798fe4bc9c3446'; 
 
 function fetchWeather(city) {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`; // For Celsius
@@ -192,7 +192,7 @@ function fetchWeather(city) {
 
 function displayWeather(data) {
     const condition = data.weather[0].description; // Weather condition
-    const iconCode = data.weather[0].icon;
+    const iconCode = data.weather[0].icon; //icon for weather condition
     const temperature = data.main.temp; // Temperature
     const humidity = data.main.humidity; // Humidity
     const windSpeed = data.wind.speed; // Wind speed
