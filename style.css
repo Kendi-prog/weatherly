@@ -474,3 +474,14 @@ section {
     border-radius: 5px;
     display: inline-block;
 }
+
+
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 5px 0;
+}
