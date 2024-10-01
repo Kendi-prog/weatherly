@@ -110,7 +110,7 @@ main{
     flex-direction: column; /* Stack elements vertically */
     align-items: center; /* Center elements */
     justify-content: center; /* Center elements vertically */
-     /* height: 100vh;Full height of the viewport */
+     height: 100vh;
     color: #000; 
     text-align: center; 
     margin-top: -20px;
@@ -395,6 +395,11 @@ border-radius: 10px;
 
 /* Responsive adjustments */
 @media (min-width: 768px) {
+    .header {
+        justify-content: flex-start; /* Space between items */
+        padding: 5px 100px 5px 20px;
+    }
+
     .below-header {
         flex-direction: row; /* Change to row layout for larger screens */
         justify-content: space-between; /* Space between items */
@@ -437,6 +442,7 @@ border-radius: 10px;
     right: 20px; /* Distance from the right */
     bottom: 20px; /* Distance from the bottom */
     z-index: 1000; /* Ensure it's above other content */
+    display: flex;
 }
 
 
