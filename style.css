@@ -14,8 +14,8 @@ body {
 .header{
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    padding:  5px 100px 5px 20px;
+    justify-content: space-between;
+    padding:  5px 20px;
     font-family: 'Indie Flower', cursive;    
 }
 
@@ -67,6 +67,22 @@ main{
     
 }
 
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+    .header {
+        padding: 10px 20px; /* Adjust padding for smaller screens */
+        
+    }
+
+    #topnav {
+        gap: 10px; /* Adjust spacing between links for smaller screens */
+    }
+
+    #topnav a {
+        font-size: medium; /* Adjust font size if needed */
+    }
+}
+
 
 /* Landing page styles*/
 @keyframes bounceIn {
@@ -94,7 +110,7 @@ main{
     flex-direction: column; /* Stack elements vertically */
     align-items: center; /* Center elements */
     justify-content: center; /* Center elements vertically */
-    height: 100vh; /* Full height of the viewport */
+     /* height: 100vh;Full height of the viewport */
     color: #000; 
     text-align: center; 
     margin-top: -20px;
@@ -155,8 +171,9 @@ p{
 
  /*Home page styles*/
 .below-header {
-    display: flex; /* Align items in a row */
-    justify-content: space-between;
+    display: flex; 
+    flex-direction: column;
+    /* justify-content: space-between; */
     margin: 30px;
     align-items: center;   
 }
@@ -168,11 +185,15 @@ p{
 
 
 .search-bar {
-    margin-right: 300px;    
+    display: flex; /* Use flexbox for the search bar */
+    justify-content: center; /* Center align */
+    align-items: center;
+    margin: 20px 0; 
+       /* margin-right: 300px; */
 } 
     
 .search-bar label {
-    margin-right: 10px; /* Space between label and input */
+    margin-left: 20px; 
     font-weight: bold;
     font-size: large; 
 }
@@ -182,8 +203,8 @@ p{
     padding: 10px; /* Inner padding for the input */
     border: 1px solid #ccc; /* Border color */
     border-radius: 5px;
-    margin-right: 10px; /* Rounded corners */
-    width: 400px;
+     /*margin-right: 10px;  */
+    width: 200px;
 }
 
 
@@ -201,6 +222,7 @@ input::placeholder {
     border: none; /* Remove default border */
     border-radius: 5px; /* Rounded corners */
     cursor: pointer; /* Pointer cursor on hover */
+    margin-left: 5px;
 }
 
 
@@ -211,16 +233,16 @@ input::placeholder {
 
 .weather-display {
     margin-top: 20px; /* Space above the weather display */
-    /* background-color: #f0f8ff; Light background for contrast */
-    padding: 20px 30px; 
+    /* background-color: #f0f8ff; Light background for contrast 30px*/
+    padding: 20px ; 
     border-radius: 10px; 
 }
 
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* four equal columns */
-    grid-template-rows: auto; /* Automatic height based on content */
+    grid-template-columns: repeat(1, 1fr); /* four equal columns */
+     /*grid-template-rows: auto; Automatic height based on content */
     gap: 30px; /* Space between grid items */
 }
 
@@ -228,12 +250,12 @@ input::placeholder {
 .grid-item {
     background-color: white;
     opacity: 0.8;
-    padding: 70px 5px; /* Inner padding */
+    padding: 20px; /*70px 5px; Inner padding */
     border-radius: 5px; 
     text-align: center; 
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
-    color: black;
-    height: 150px;
+    
+    /*height: 150px; Weather Icon Styling */
 }
 
 
@@ -365,12 +387,48 @@ border-radius: 10px;
 
 
 .forecast {
-    grid-column: 2 / 4; /* Make this item span the two columns */
+    grid-column: span 1; /*  2 / 4 Make this item span the two columns */
     background-color: #e6f7ff; 
-    opacity: 0.9;
-    padding: 20px; 
-    border-radius: 5px; 
-    height: 200px;
+    opacity: 0.9;  
+}
+
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+    .below-header {
+        flex-direction: row; /* Change to row layout for larger screens */
+        justify-content: space-between; /* Space between items */
+    }
+
+    .search-bar {
+        margin-right: 300px;    
+    }
+
+    .search-bar input{
+        margin-right: 10px; 
+        width: 400px;   
+    }
+
+    .search-bar label{
+        margin-right: 20px; 
+    }
+
+    .grid-container {
+        grid-template-columns: repeat(4, 1fr); /* Four equal columns */
+        grid-template-rows: auto;
+    }
+
+    .grid-item {
+        padding: 70px 5px; /* Increased padding for larger screens */
+        height: 150px;
+    }
+
+    .forecast {
+        grid-column: 2 / 4; /* Make the forecast item span two columns */
+        padding: 20px; 
+        border-radius: 5px; 
+        height: 200px;
+    }
 }
 
 
